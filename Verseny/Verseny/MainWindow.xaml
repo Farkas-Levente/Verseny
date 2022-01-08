@@ -7,14 +7,17 @@
         mc:Ignorable="d"
         Name="mainAblak" Title="MainWindow" Height="450" Width="800">
     <Grid>
-        <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="74" Stroke="Black" VerticalAlignment="Top" Width="66" Margin="62,78,0,0"/>
-        <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="75" Stroke="Black" VerticalAlignment="Top" Width="66" Margin="62,156,0,0"/>
-        <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="75" Stroke="Black" VerticalAlignment="Top" Width="66" Margin="62,234,0,0"/>
-        <Button Content="Button" HorizontalAlignment="Left" Margin="107,27,0,0" VerticalAlignment="Top" Width="75"/>
-        <Button Content="Button" HorizontalAlignment="Left" Margin="223,27,0,0" VerticalAlignment="Top" Width="75"/>
-        <Button Content="Button" HorizontalAlignment="Left" Margin="342,27,0,0" VerticalAlignment="Top" Width="75"/>
+        <Rectangle x:Name="Versenyzo1" Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="74" Stroke="Black" VerticalAlignment="Top" Width="66" Margin="62,78,0,0" RenderTransformOrigin="0.5,0.5"/>
+        <Rectangle  x:Name="Versenyzo2" Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="75" Stroke="Black" VerticalAlignment="Top" Width="66" Margin="62,156,0,0"/>
+        <Rectangle x:Name="Versenyzo3" Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="75" Stroke="Black" VerticalAlignment="Top" Width="66" Margin="62,234,0,0"/>
+        <Button x:Name="Start" Content="Button" HorizontalAlignment="Left" Margin="107,27,0,0" VerticalAlignment="Top" Width="75"/>
+        <Button Name="UjFutam" Content="Button" HorizontalAlignment="Left" Margin="223,27,0,0" VerticalAlignment="Top" Width="75"/>
+        <Button Name="UjBajnoksag" Content="Button" HorizontalAlignment="Left" Margin="342,27,0,0" VerticalAlignment="Top" Width="75"/>
         <Label Content="A bajnokság állása" HorizontalAlignment="Left" Margin="41,331,0,0" VerticalAlignment="Top" Width="115"/>
         <Image x:Name="Háttér" HorizontalAlignment="Left" Height="264" Margin="49,62,0,0" VerticalAlignment="Top" Width="389"/>
+        <Image HorizontalAlignment="Left" Height="231" Margin="128,78,0,0" VerticalAlignment="Top" Width="28"/>
+        <Image x:Name="celvonal" HorizontalAlignment="Left" Height="231" Margin="410,78,0,0" VerticalAlignment="Top" Width="28" OpacityMask="#F9FBFBFB"/>
+        <Label Name="eredmenyLabel" Content="" HorizontalAlignment="Left" Margin="161,342,0,0" VerticalAlignment="Top" Height="58" Width="289"/>
 
     </Grid>
 </Window>

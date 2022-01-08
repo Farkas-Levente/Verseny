@@ -18,14 +18,17 @@ namespace Verseny
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
+    /// 
     public partial class MainWindow : Window
     {
+
         public MainWindow()
         {
             InitializeComponent();
+            
         }
     }
-
+    
 
     public class Versenyzo
     {
@@ -43,4 +46,12 @@ namespace Verseny
         }
         
     }
+    public class Bajnokság
+    {
+        public List<Versenyzo> versenyzok = new List<Versenyzo>();
+        public List<Versenyzo> sorrend = new List<Versenyzo>();
+    }
+
+
+    
 }
