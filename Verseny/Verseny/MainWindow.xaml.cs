@@ -21,14 +21,25 @@ namespace Verseny
     /// 
     public partial class MainWindow : Window
     {
-
+        int l = 100;
+        int t = 100;
         public MainWindow()
         {
             InitializeComponent();
             
         }
+
+        private void Start_Click(object sender, RoutedEventArgs e)
+        {
+            
+            
+            Thickness th = new Thickness(t, Versenyzo1.Margin.Top, 0, 0);
+            Versenyzo1.Margin = th;
+            l += 100;
+            t += 100;
+        }
     }
-    
+
 
     public class Versenyzo
     {
@@ -46,7 +57,7 @@ namespace Verseny
         }
         
     }
-    public class Bajnokság
+    public class Futam
     {
         public List<Versenyzo> versenyzok = new List<Versenyzo>();
         public List<Versenyzo> sorrend = new List<Versenyzo>();
