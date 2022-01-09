@@ -43,6 +43,7 @@ namespace Verseny
             timer.Interval = TimeSpan.FromMilliseconds(10); 
             timer.Start(); 
             timer.Tick += Tick;
+            UjFutam.IsEnabled = false;
 
             futam = new Futam();
             versenyzo1 = new Versenyzo("versenyzo1", Rect1, futam);
@@ -61,6 +62,9 @@ namespace Verseny
         {
             
             indulhat = true;
+            Start.IsEnabled = false;
+            UjBajnoksag.IsEnabled = false;
+            UjFutam.IsEnabled = false;
 
         }
         private void Tick(object sender, EventArgs e)
@@ -92,7 +96,8 @@ namespace Verseny
                 harmadikSor.Content = $"{bajnoksag.pontozasiSorrend[2].name}   {bajnoksag.pontozasiSorrend[2].elsoHelyekSzama}    {bajnoksag.pontozasiSorrend[2].masodikHelyezesekSzama}     {bajnoksag.pontozasiSorrend[2].harmadikHelyezesekSzama}            {bajnoksag.pontozasiSorrend[2].pontSzam}";
 
 
-
+                UjFutam.IsEnabled = true;
+                UjBajnoksag.IsEnabled = true;
 
             }
         }
@@ -100,6 +105,9 @@ namespace Verseny
         private void UjFutam_Click(object sender, RoutedEventArgs e)
         {
             indulhat = false;
+            UjFutam.IsEnabled = false;
+            Start.IsEnabled = true;
+            
             futam.sorrend.Clear();
             foreach(Versenyzo v in futam.versenyzok)
             {
@@ -141,6 +149,7 @@ namespace Verseny
         {
             if (rect.Margin.Left >= celvonalErtek)
             {
+                rect.Margin = new Thickness(celvonalErtek, rect.Margin.Top, 0, 0);
                 if(!futam.sorrend.Contains(this))
                 {
                     futam.sorrend.Add(this);
