@@ -172,15 +172,21 @@ namespace Verseny
         
         public void UjraRendez()
         {
-            for (int i = 1; i < pontozasiSorrend.Count; i++)
+            var itemMoved = false;
+            do
             {
-                if(pontozasiSorrend[i-1].pontSzam < pontozasiSorrend[i].pontSzam )
+                itemMoved = false;
+                for (int i = 0; i < pontozasiSorrend.Count() - 1; i++)
                 {
-                    Versenyzo temp = pontozasiSorrend[i - 1];
-                    pontozasiSorrend[i - 1] = pontozasiSorrend[i];
-                    pontozasiSorrend[i] = temp;
+                    if (pontozasiSorrend[i].pontSzam < pontozasiSorrend[i + 1].pontSzam)
+                    {
+                        var higherValue = pontozasiSorrend[i ];
+                        pontozasiSorrend[i ] = pontozasiSorrend[i+1];
+                        pontozasiSorrend[i+1 ] = higherValue;
+                        itemMoved = true;
+                    }
                 }
-            }
+            } while (itemMoved);
         }
     }
 
