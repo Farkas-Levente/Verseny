@@ -1,11 +1,11 @@
-﻿<Window x:Class="Verseny.MainWindow"
+﻿<Window x:Name="mainAblak" x:Class="Verseny.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Verseny"
         mc:Ignorable="d"
-        Name="mainAblak" Title="MainWindow" Height="450" Width="800">
+         Title="MainWindow"  Height="450" Width="800">
     <Grid>
         <Rectangle x:Name="Rect1"   Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="74" Stroke="Black" VerticalAlignment="Top" Width="66" Margin="62,78,0,0" RenderTransformOrigin="0.5,0.5"/>
         <Rectangle  x:Name="Rect2" Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="75" Stroke="Black" VerticalAlignment="Top" Width="66" Margin="62,156,0,0"/>

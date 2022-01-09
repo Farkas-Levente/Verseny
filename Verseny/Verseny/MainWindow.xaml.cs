@@ -26,16 +26,19 @@ namespace Verseny
         Versenyzo versenyzo2;
         Versenyzo versenyzo3;
         Futam futam;
+        DispatcherTimer timer;
         bool indulhat = false;
+        Random random = new Random();
 
         int t = 100;
+        
         double celvonalErtek;
         public MainWindow()
         {
             InitializeComponent();
             celvonalErtek = celvonal.Margin.Left;
-            DispatcherTimer timer = new DispatcherTimer();
-           
+
+            timer = new DispatcherTimer();
             timer.Interval = TimeSpan.FromMilliseconds(10); 
             timer.Start(); 
             timer.Tick += Tick; 
@@ -44,10 +47,10 @@ namespace Verseny
 
         private void Start_Click(object sender, RoutedEventArgs e)
         {
-            Futam futam = new Futam();
-            versenyzo1 = new Versenyzo("asd", Rect1);
-            versenyzo2 = new Versenyzo("asd", Rect2);
-            versenyzo3 = new Versenyzo("asd", Rect3);
+            futam = new Futam();
+            versenyzo1 = new Versenyzo("versenyzo1", Rect1,futam);
+            versenyzo2 = new Versenyzo("versenyzo2", Rect2,futam);
+            versenyzo3 = new Versenyzo("versenyzo3", Rect3,futam);
             futam.versenyzok.Add(versenyzo1);
             futam.versenyzok.Add(versenyzo2);
             futam.versenyzok.Add(versenyzo3);
@@ -57,13 +60,23 @@ namespace Verseny
         private void Tick(object sender, EventArgs e)
         {
             if (!indulhat) return;
-           
+            int random1 = random.Next(1, 3);
+            int random2 = random.Next(1, 3);
+            int random3 = random.Next(1, 3);
 
-            versenyzo1.Move(celvonalErtek);
-            versenyzo2.Move(celvonalErtek);
-            versenyzo3.Move(celvonalErtek);
+            versenyzo1.Move(celvonalErtek,random1);
+            versenyzo2.Move(celvonalErtek,random2);
+            versenyzo3.Move(celvonalErtek,random3);
+
+            if(futam.versenyzok.Count == futam.sorrend.Count)
+            {
+                
+                timer.Stop();
+                eredmenyLabel.Content = $"Hely   Név     1.  2.  3.  Pont" 
+                    
 
 
+            }
         }
     }
 
@@ -76,27 +89,39 @@ namespace Verseny
         public int elsoHelyekSzama;
         public int masodikHelyezesekSzama;
         public int harmadikHelyezesekSzama;
+        Futam futam;
 
         public float speed;
 
         float value = 5f;
 
-        Random random = new Random();
-        public Versenyzo(string name,Rectangle rect)
+        
+        public Versenyzo(string name,Rectangle rect,Futam futam)
         {
+            this.futam = futam;
+            Random random = new Random();
             this.rect = rect;
             this.name = name;
-            speed = random.Next(1,3);
+            speed = random.Next(1,10);
         }
         
-        public void Move(double celvonalErtek)
+        public void Move(double celvonalErtek,int randomszam)
         {
-            if (rect.Margin.Left >= celvonalErtek) return;
+            if (rect.Margin.Left >= celvonalErtek)
+            {
+                if(!futam.sorrend.Contains(this))
+                {
+                    futam.sorrend.Add(this);
+                }
+                
+                return;
+            }
+                
 
-            Thickness th = new Thickness(value * speed, rect.Margin.Top, 0, 0);
+            Thickness th = new Thickness(value , rect.Margin.Top, 0, 0);
             rect.Margin = th;
 
-            value += 5;
+            value += 5 * randomszam;
         }
         
     }
@@ -104,6 +129,8 @@ namespace Verseny
     {
         public List<Versenyzo> versenyzok = new List<Versenyzo>();
         public List<Versenyzo> sorrend = new List<Versenyzo>();
+
+       
     }
 
 
