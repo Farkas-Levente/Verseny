@@ -16,7 +16,7 @@
         <Label Content="A bajnokság állása" HorizontalAlignment="Left" Margin="41,331,0,0" VerticalAlignment="Top" Width="115"/>
         <Image x:Name="Háttér" HorizontalAlignment="Left" Height="264" Margin="49,62,0,0" VerticalAlignment="Top" Width="389"/>
         <Image HorizontalAlignment="Left" Height="231" Margin="128,78,0,0" VerticalAlignment="Top" Width="28"/>
-        <Image x:Name="celvonal" HorizontalAlignment="Left" Height="231" Margin="410,78,0,0" VerticalAlignment="Top" Width="28" OpacityMask="#F9FBFBFB"/>
+        <Image x:Name="celvonal" HorizontalAlignment="Left" Height="231" Margin="410,78,0,0" VerticalAlignment="Top" Width="28"/>
         <Label Name="eredmenyLabel" Content="" HorizontalAlignment="Left" Margin="161,342,0,0" VerticalAlignment="Top" Height="58" Width="289"/>
 
     </Grid>

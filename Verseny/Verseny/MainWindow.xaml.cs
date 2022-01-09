@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Windows.Threading;
 
 namespace Verseny
 {
@@ -21,26 +22,40 @@ namespace Verseny
     /// 
     public partial class MainWindow : Window
     {
-        int l = 100;
+       
         int t = 100;
+        double celvonalErtek;
         public MainWindow()
         {
             InitializeComponent();
-            
+            celvonalErtek = celvonal.Margin.Left;
+            DispatcherTimer timer = new DispatcherTimer();
+           
+            timer.Interval = TimeSpan.FromMilliseconds(10); 
+            timer.Start(); 
+            timer.Tick += Tick; 
+
         }
 
         private void Start_Click(object sender, RoutedEventArgs e)
         {
-            
-            
+            Versenyzo versenyzo = new Versenyzo("asd");
+           
+        }
+        private void Tick(object sender, EventArgs e)
+        {
+
+            if (Versenyzo1.Margin.Left >= celvonalErtek) return;
+
             Thickness th = new Thickness(t, Versenyzo1.Margin.Top, 0, 0);
             Versenyzo1.Margin = th;
-            l += 100;
-            t += 100;
+
+            t += 5;
+
         }
     }
 
-
+    
     public class Versenyzo
     {
         public string name;
@@ -50,11 +65,14 @@ namespace Verseny
         public int masodikHelyezesekSzama;
         public int harmadikHelyezesekSzama;
 
-
+        public float speed;
+        Random random = new Random();
         public Versenyzo(string name)
         {
             this.name = name;
+            speed = random.Next(1,3);
         }
+        
         
     }
     public class Futam
