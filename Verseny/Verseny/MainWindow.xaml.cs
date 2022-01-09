@@ -44,6 +44,7 @@ namespace Verseny
             timer.Start(); 
             timer.Tick += Tick;
             UjFutam.IsEnabled = false;
+            UjBajnoksag.IsEnabled = false;
 
             futam = new Futam();
             versenyzo1 = new Versenyzo("versenyzo1", Rect1, futam);
@@ -127,8 +128,16 @@ namespace Verseny
 
         private void UjBajnoksag_Click(object sender, RoutedEventArgs e)
         {
-            string eredmeny = eredmenytabla.Content.ToString();
+            string eredmeny ="         A bajnokság eredményei"+"\n"+"\n"+eredmenytabla.Content.ToString();
             MessageBox.Show(eredmeny);
+            foreach(Versenyzo v in bajnoksag.pontozasiSorrend)
+            {
+                v.elsoHelyekSzama = 0;
+                v.masodikHelyezesekSzama = 0;
+                v.harmadikHelyezesekSzama = 0;
+                v.pontSzam = 0;
+                eredmenytabla.Content = " ";
+            }
             
             
         }
