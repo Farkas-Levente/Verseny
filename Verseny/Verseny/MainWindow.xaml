@@ -17,7 +17,11 @@
         <Image x:Name="Háttér" HorizontalAlignment="Left" Height="264" Margin="49,62,0,0" VerticalAlignment="Top" Width="389"/>
         <Image HorizontalAlignment="Left" Height="231" Margin="128,78,0,0" VerticalAlignment="Top" Width="28"/>
         <Image x:Name="celvonal" HorizontalAlignment="Left" Height="231" Margin="410,78,0,0" VerticalAlignment="Top" Width="28"/>
-        <Label Name="eredmenyLabel" Content="" HorizontalAlignment="Left" Margin="161,342,0,0" VerticalAlignment="Top" Height="58" Width="289"/>
+        <Label Name="fejlec" Content="Hely      Név         1.      2.      3.      Pont" HorizontalAlignment="Left" Margin="233,313,0,0" VerticalAlignment="Top" Height="26" Width="265"/>
+        <Label x:Name="fejlec_Copy" Content="1." HorizontalAlignment="Left" Margin="233,339,0,0" VerticalAlignment="Top" Height="27" Width="26" RenderTransformOrigin="1.32,0.481"/>
+        <Label x:Name="fejlec_Copy1" Content="2." HorizontalAlignment="Left" Margin="233,364,0,0" VerticalAlignment="Top" Height="27" Width="26" RenderTransformOrigin="1.32,0.481"/>
+        <Label x:Name="fejlec_Copy2" Content="3." HorizontalAlignment="Left" Margin="233,382,0,0" VerticalAlignment="Top" Height="27" Width="26" RenderTransformOrigin="1.32,0.481"/>
+        <Label Name="elsosor" Content="" HorizontalAlignment="Left" Margin="264,339,0,0" VerticalAlignment="Top" Width="322" Height="27"/>
 
     </Grid>
 </Window>

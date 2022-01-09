@@ -71,9 +71,12 @@ namespace Verseny
             if(futam.versenyzok.Count == futam.sorrend.Count)
             {
                 
-                timer.Stop();
-                eredmenyLabel.Content = $"Hely   Név     1.  2.  3.  Pont" 
-                    
+               // timer.Stop();
+
+                elsosor.Content = $"{versenyzo1.name}   {versenyzo1.elsoHelyekSzama}    {versenyzo1.masodikHelyezesekSzama}     {versenyzo1.harmadikHelyezesekSzama}            {versenyzo1.pontSzam}";
+
+
+
 
 
             }
@@ -84,11 +87,11 @@ namespace Verseny
     public class Versenyzo
     {
         public string name;
-        public int pontSzam;
+        public int pontSzam = 0;
         public Rectangle rect;
-        public int elsoHelyekSzama;
-        public int masodikHelyezesekSzama;
-        public int harmadikHelyezesekSzama;
+        public int elsoHelyekSzama =0;
+        public int masodikHelyezesekSzama = 0;
+        public int harmadikHelyezesekSzama = 0;
         Futam futam;
 
         public float speed;
@@ -112,6 +115,19 @@ namespace Verseny
                 if(!futam.sorrend.Contains(this))
                 {
                     futam.sorrend.Add(this);
+                    
+                    if (futam.sorrend[0] == this)
+                    {
+                        elsoHelyekSzama++;
+                    }
+                   else if(futam.sorrend[1] == this)
+                    {
+                        masodikHelyezesekSzama++;
+                    }
+                    else if(futam.sorrend[2] == this)
+                    {
+                        harmadikHelyezesekSzama++;
+                    }
                 }
                 
                 return;
