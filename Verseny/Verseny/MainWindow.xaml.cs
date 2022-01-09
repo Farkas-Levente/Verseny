@@ -22,7 +22,9 @@ namespace Verseny
     /// 
     public partial class MainWindow : Window
     {
-       
+        Versenyzo versenyzo1;
+
+
         int t = 100;
         double celvonalErtek;
         public MainWindow()
@@ -39,16 +41,18 @@ namespace Verseny
 
         private void Start_Click(object sender, RoutedEventArgs e)
         {
-            Versenyzo versenyzo = new Versenyzo("asd");
-           
+
+            versenyzo1 = new Versenyzo("asd", Rect1);
+            
         }
         private void Tick(object sender, EventArgs e)
         {
 
-            if (Versenyzo1.Margin.Left >= celvonalErtek) return;
+            if (versenyzo1 == null) return;
+            if (versenyzo1.rect.Margin.Left >= celvonalErtek) return;
 
-            Thickness th = new Thickness(t, Versenyzo1.Margin.Top, 0, 0);
-            Versenyzo1.Margin = th;
+            Thickness th = new Thickness(t * versenyzo1.speed, versenyzo1.rect.Margin.Top, 0, 0);
+            versenyzo1.rect.Margin = th;
 
             t += 5;
 
@@ -60,15 +64,17 @@ namespace Verseny
     {
         public string name;
         public int pontSzam;
-
+        public Rectangle rect;
         public int elsoHelyekSzama;
         public int masodikHelyezesekSzama;
         public int harmadikHelyezesekSzama;
 
         public float speed;
+
         Random random = new Random();
-        public Versenyzo(string name)
+        public Versenyzo(string name,Rectangle rect)
         {
+            this.rect = rect;
             this.name = name;
             speed = random.Next(1,3);
         }
