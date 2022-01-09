@@ -29,7 +29,7 @@ namespace Verseny
         DispatcherTimer timer;
         bool indulhat = false;
         Random random = new Random();
-
+        Bajnoksag bajnoksag;
         int t = 100;
         
         double celvonalErtek;
@@ -37,11 +37,13 @@ namespace Verseny
         {
             InitializeComponent();
             celvonalErtek = celvonal.Margin.Left;
-
+            bajnoksag = new Bajnoksag();
+            
             timer = new DispatcherTimer();
             timer.Interval = TimeSpan.FromMilliseconds(10); 
             timer.Start(); 
             timer.Tick += Tick; 
+            
 
         }
 
@@ -54,6 +56,9 @@ namespace Verseny
             futam.versenyzok.Add(versenyzo1);
             futam.versenyzok.Add(versenyzo2);
             futam.versenyzok.Add(versenyzo3);
+            bajnoksag.pontozasiSorrend.Add(versenyzo1);
+            bajnoksag.pontozasiSorrend.Add(versenyzo2);
+            bajnoksag.pontozasiSorrend.Add(versenyzo3);
             indulhat = true;
 
         }
@@ -70,11 +75,20 @@ namespace Verseny
 
             if(futam.versenyzok.Count == futam.sorrend.Count)
             {
-                
-               // timer.Stop();
 
-                elsosor.Content = $"{versenyzo1.name}   {versenyzo1.elsoHelyekSzama}    {versenyzo1.masodikHelyezesekSzama}     {versenyzo1.harmadikHelyezesekSzama}            {versenyzo1.pontSzam}";
+                // timer.Stop();
+                foreach (Versenyzo item in futam.versenyzok)
+                {
+                    if(item.pontSzam == 0)
+                    {
+                        return;
+                    }
+                }
+                bajnoksag.UjraRendez();
 
+                elsosor.Content = $"{bajnoksag.pontozasiSorrend[0].name}   {bajnoksag.pontozasiSorrend[0].elsoHelyekSzama}    {bajnoksag.pontozasiSorrend[0].masodikHelyezesekSzama}     {bajnoksag.pontozasiSorrend[0].harmadikHelyezesekSzama}            {bajnoksag.pontozasiSorrend[0].pontSzam}";
+                masodikSor.Content = $"{bajnoksag.pontozasiSorrend[1].name}   {bajnoksag.pontozasiSorrend[1].elsoHelyekSzama}    {bajnoksag.pontozasiSorrend[1].masodikHelyezesekSzama}     {bajnoksag.pontozasiSorrend[1].harmadikHelyezesekSzama}            {bajnoksag.pontozasiSorrend[1].pontSzam}";
+                harmadikSor.Content = $"{bajnoksag.pontozasiSorrend[2].name}   {bajnoksag.pontozasiSorrend[2].elsoHelyekSzama}    {bajnoksag.pontozasiSorrend[2].masodikHelyezesekSzama}     {bajnoksag.pontozasiSorrend[2].harmadikHelyezesekSzama}            {bajnoksag.pontozasiSorrend[2].pontSzam}";
 
 
 
@@ -119,14 +133,17 @@ namespace Verseny
                     if (futam.sorrend[0] == this)
                     {
                         elsoHelyekSzama++;
+                        pontSzam += 3;
                     }
                    else if(futam.sorrend[1] == this)
                     {
                         masodikHelyezesekSzama++;
+                        pontSzam += 2;
                     }
                     else if(futam.sorrend[2] == this)
                     {
                         harmadikHelyezesekSzama++;
+                        pontSzam += 1;
                     }
                 }
                 
@@ -149,6 +166,23 @@ namespace Verseny
        
     }
 
+    public class Bajnoksag
+    {
+        public List<Versenyzo> pontozasiSorrend = new List<Versenyzo>();
+        
+        public void UjraRendez()
+        {
+            for (int i = 1; i < pontozasiSorrend.Count; i++)
+            {
+                if(pontozasiSorrend[i-1].pontSzam < pontozasiSorrend[i].pontSzam )
+                {
+                    Versenyzo temp = pontozasiSorrend[i - 1];
+                    pontozasiSorrend[i - 1] = pontozasiSorrend[i];
+                    pontozasiSorrend[i] = temp;
+                }
+            }
+        }
+    }
 
     
 }

@@ -22,6 +22,8 @@
         <Label x:Name="fejlec_Copy1" Content="2." HorizontalAlignment="Left" Margin="233,364,0,0" VerticalAlignment="Top" Height="27" Width="26" RenderTransformOrigin="1.32,0.481"/>
         <Label x:Name="fejlec_Copy2" Content="3." HorizontalAlignment="Left" Margin="233,382,0,0" VerticalAlignment="Top" Height="27" Width="26" RenderTransformOrigin="1.32,0.481"/>
         <Label Name="elsosor" Content="" HorizontalAlignment="Left" Margin="264,339,0,0" VerticalAlignment="Top" Width="322" Height="27"/>
+        <Label x:Name="masodikSor" Content="" HorizontalAlignment="Left" Margin="259,364,0,0" VerticalAlignment="Top" Width="322" Height="27"/>
+        <Label x:Name="harmadikSor" Content="" HorizontalAlignment="Left" Margin="264,382,0,0" VerticalAlignment="Top" Width="322" Height="27"/>
 
     </Grid>
 </Window>
