@@ -42,23 +42,24 @@ namespace Verseny
             timer = new DispatcherTimer();
             timer.Interval = TimeSpan.FromMilliseconds(10); 
             timer.Start(); 
-            timer.Tick += Tick; 
-            
+            timer.Tick += Tick;
 
-        }
-
-        private void Start_Click(object sender, RoutedEventArgs e)
-        {
             futam = new Futam();
-            versenyzo1 = new Versenyzo("versenyzo1", Rect1,futam);
-            versenyzo2 = new Versenyzo("versenyzo2", Rect2,futam);
-            versenyzo3 = new Versenyzo("versenyzo3", Rect3,futam);
+            versenyzo1 = new Versenyzo("versenyzo1", Rect1, futam);
+            versenyzo2 = new Versenyzo("versenyzo2", Rect2, futam);
+            versenyzo3 = new Versenyzo("versenyzo3", Rect3, futam);
             futam.versenyzok.Add(versenyzo1);
             futam.versenyzok.Add(versenyzo2);
             futam.versenyzok.Add(versenyzo3);
             bajnoksag.pontozasiSorrend.Add(versenyzo1);
             bajnoksag.pontozasiSorrend.Add(versenyzo2);
             bajnoksag.pontozasiSorrend.Add(versenyzo3);
+
+        }
+
+        private void Start_Click(object sender, RoutedEventArgs e)
+        {
+            
             indulhat = true;
 
         }
@@ -95,9 +96,21 @@ namespace Verseny
 
             }
         }
+
+        private void UjFutam_Click(object sender, RoutedEventArgs e)
+        {
+            indulhat = false;
+            futam.sorrend.Clear();
+            foreach(Versenyzo v in futam.versenyzok)
+            {
+                v.rect.Margin = v.start;
+                v.value = 5f;
+            }
+
+        }
     }
 
-    
+
     public class Versenyzo
     {
         public string name;
@@ -107,10 +120,11 @@ namespace Verseny
         public int masodikHelyezesekSzama = 0;
         public int harmadikHelyezesekSzama = 0;
         Futam futam;
+        public Thickness start;
 
         public float speed;
 
-        float value = 5f;
+        public float value = 5f;
 
         
         public Versenyzo(string name,Rectangle rect,Futam futam)
@@ -120,6 +134,7 @@ namespace Verseny
             this.rect = rect;
             this.name = name;
             speed = random.Next(1,10);
+            start = rect.Margin;
         }
         
         public void Move(double celvonalErtek,int randomszam)
