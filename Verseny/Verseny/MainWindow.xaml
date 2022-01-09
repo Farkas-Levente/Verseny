@@ -12,18 +12,12 @@
         <Rectangle x:Name="Rect3" Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="75" Stroke="Black" VerticalAlignment="Top" Width="66" Margin="62,234,0,0"/>
         <Button x:Name="Start" Content="Start" HorizontalAlignment="Left" Margin="107,27,0,0" VerticalAlignment="Top" Width="75" Click="Start_Click"/>
         <Button Name="UjFutam" Content="Új Futam" HorizontalAlignment="Left" Margin="223,27,0,0" VerticalAlignment="Top" Width="75" Click="UjFutam_Click"/>
-        <Button Name="UjBajnoksag" Content="Új Bajnokság" HorizontalAlignment="Left" Margin="342,27,0,0" VerticalAlignment="Top" Width="75"/>
+        <Button Name="UjBajnoksag" Content="Új Bajnokság" HorizontalAlignment="Left" Margin="342,27,0,0" VerticalAlignment="Top" Width="75" Click="UjBajnoksag_Click"/>
         <Label Content="A bajnokság állása" HorizontalAlignment="Left" Margin="41,331,0,0" VerticalAlignment="Top" Width="115"/>
         <Image x:Name="Háttér" HorizontalAlignment="Left" Height="264" Margin="49,62,0,0" VerticalAlignment="Top" Width="389"/>
         <Image HorizontalAlignment="Left" Height="231" Margin="128,78,0,0" VerticalAlignment="Top" Width="28"/>
         <Image x:Name="celvonal" HorizontalAlignment="Left" Height="231" Margin="410,78,0,0" VerticalAlignment="Top" Width="28"/>
-        <Label Name="fejlec" Content="Hely      Név         1.      2.      3.      Pont" HorizontalAlignment="Left" Margin="233,313,0,0" VerticalAlignment="Top" Height="26" Width="265"/>
-        <Label x:Name="fejlec_Copy" Content="1." HorizontalAlignment="Left" Margin="233,339,0,0" VerticalAlignment="Top" Height="27" Width="26" RenderTransformOrigin="1.32,0.481"/>
-        <Label x:Name="fejlec_Copy1" Content="2." HorizontalAlignment="Left" Margin="233,364,0,0" VerticalAlignment="Top" Height="27" Width="26" RenderTransformOrigin="1.32,0.481"/>
-        <Label x:Name="fejlec_Copy2" Content="3." HorizontalAlignment="Left" Margin="233,382,0,0" VerticalAlignment="Top" Height="27" Width="26" RenderTransformOrigin="1.32,0.481"/>
-        <Label Name="elsosor" Content="" HorizontalAlignment="Left" Margin="264,339,0,0" VerticalAlignment="Top" Width="322" Height="27"/>
-        <Label x:Name="masodikSor" Content="" HorizontalAlignment="Left" Margin="259,364,0,0" VerticalAlignment="Top" Width="322" Height="27"/>
-        <Label x:Name="harmadikSor" Content="" HorizontalAlignment="Left" Margin="264,382,0,0" VerticalAlignment="Top" Width="322" Height="27"/>
+        <Label Name="eredmenytabla" Content="" HorizontalAlignment="Left" Margin="223,314,0,0" VerticalAlignment="Top" Height="101" Width="290"/>
 
     </Grid>
 </Window>

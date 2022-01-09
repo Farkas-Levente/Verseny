@@ -91,9 +91,17 @@ namespace Verseny
                 }
                 bajnoksag.UjraRendez();
 
-                elsosor.Content = $"{bajnoksag.pontozasiSorrend[0].name}   {bajnoksag.pontozasiSorrend[0].elsoHelyekSzama}    {bajnoksag.pontozasiSorrend[0].masodikHelyezesekSzama}     {bajnoksag.pontozasiSorrend[0].harmadikHelyezesekSzama}            {bajnoksag.pontozasiSorrend[0].pontSzam}";
-                masodikSor.Content = $"{bajnoksag.pontozasiSorrend[1].name}   {bajnoksag.pontozasiSorrend[1].elsoHelyekSzama}    {bajnoksag.pontozasiSorrend[1].masodikHelyezesekSzama}     {bajnoksag.pontozasiSorrend[1].harmadikHelyezesekSzama}            {bajnoksag.pontozasiSorrend[1].pontSzam}";
-                harmadikSor.Content = $"{bajnoksag.pontozasiSorrend[2].name}   {bajnoksag.pontozasiSorrend[2].elsoHelyekSzama}    {bajnoksag.pontozasiSorrend[2].masodikHelyezesekSzama}     {bajnoksag.pontozasiSorrend[2].harmadikHelyezesekSzama}            {bajnoksag.pontozasiSorrend[2].pontSzam}";
+
+                eredmenytabla.Content = $"Hely      Név        1.    2.    3.          Pont"+"\n"+
+                    $"1.    {bajnoksag.pontozasiSorrend[0].name}   {bajnoksag.pontozasiSorrend[0].elsoHelyekSzama}    {bajnoksag.pontozasiSorrend[0].masodikHelyezesekSzama}     {bajnoksag.pontozasiSorrend[0].harmadikHelyezesekSzama}            {bajnoksag.pontozasiSorrend[0].pontSzam}" +"\n"+
+                    $"2.    {bajnoksag.pontozasiSorrend[1].name}   {bajnoksag.pontozasiSorrend[1].elsoHelyekSzama}    {bajnoksag.pontozasiSorrend[1].masodikHelyezesekSzama}     {bajnoksag.pontozasiSorrend[1].harmadikHelyezesekSzama}            {bajnoksag.pontozasiSorrend[1].pontSzam}"+"\n"+
+                    $"3.    {bajnoksag.pontozasiSorrend[2].name}   {bajnoksag.pontozasiSorrend[2].elsoHelyekSzama}    {bajnoksag.pontozasiSorrend[2].masodikHelyezesekSzama}     {bajnoksag.pontozasiSorrend[2].harmadikHelyezesekSzama}            {bajnoksag.pontozasiSorrend[2].pontSzam}";
+
+
+
+                //elsosor.Content = $"{bajnoksag.pontozasiSorrend[0].name}   {bajnoksag.pontozasiSorrend[0].elsoHelyekSzama}    {bajnoksag.pontozasiSorrend[0].masodikHelyezesekSzama}     {bajnoksag.pontozasiSorrend[0].harmadikHelyezesekSzama}            {bajnoksag.pontozasiSorrend[0].pontSzam}";
+                //masodikSor.Content = $"{bajnoksag.pontozasiSorrend[1].name}   {bajnoksag.pontozasiSorrend[1].elsoHelyekSzama}    {bajnoksag.pontozasiSorrend[1].masodikHelyezesekSzama}     {bajnoksag.pontozasiSorrend[1].harmadikHelyezesekSzama}            {bajnoksag.pontozasiSorrend[1].pontSzam}";
+                //harmadikSor.Content = $"{bajnoksag.pontozasiSorrend[2].name}   {bajnoksag.pontozasiSorrend[2].elsoHelyekSzama}    {bajnoksag.pontozasiSorrend[2].masodikHelyezesekSzama}     {bajnoksag.pontozasiSorrend[2].harmadikHelyezesekSzama}            {bajnoksag.pontozasiSorrend[2].pontSzam}";
 
 
                 UjFutam.IsEnabled = true;
@@ -115,6 +123,14 @@ namespace Verseny
                 v.value = 5f;
             }
 
+        }
+
+        private void UjBajnoksag_Click(object sender, RoutedEventArgs e)
+        {
+            string eredmeny = eredmenytabla.Content.ToString();
+            MessageBox.Show(eredmeny);
+            
+            
         }
     }
 
