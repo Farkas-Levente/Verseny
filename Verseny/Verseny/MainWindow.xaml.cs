@@ -137,6 +137,17 @@ namespace Verseny
                 v.harmadikHelyezesekSzama = 0;
                 v.pontSzam = 0;
                 eredmenytabla.Content = " ";
+
+                indulhat = false;
+                UjFutam.IsEnabled = false;
+                Start.IsEnabled = true;
+
+                futam.sorrend.Clear();
+                foreach (Versenyzo d in futam.versenyzok)
+                {
+                    d.rect.Margin = d.start;
+                    d.value = 5f;
+                }
             }
             
             
