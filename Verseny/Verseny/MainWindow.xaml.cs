@@ -23,7 +23,10 @@ namespace Verseny
     public partial class MainWindow : Window
     {
         Versenyzo versenyzo1;
-
+        Versenyzo versenyzo2;
+        Versenyzo versenyzo3;
+        Futam futam;
+        bool indulhat = false;
 
         int t = 100;
         double celvonalErtek;
@@ -41,20 +44,25 @@ namespace Verseny
 
         private void Start_Click(object sender, RoutedEventArgs e)
         {
-
+            Futam futam = new Futam();
             versenyzo1 = new Versenyzo("asd", Rect1);
-            
+            versenyzo2 = new Versenyzo("asd", Rect2);
+            versenyzo3 = new Versenyzo("asd", Rect3);
+            futam.versenyzok.Add(versenyzo1);
+            futam.versenyzok.Add(versenyzo2);
+            futam.versenyzok.Add(versenyzo3);
+            indulhat = true;
+
         }
         private void Tick(object sender, EventArgs e)
         {
+            if (!indulhat) return;
+           
 
-            if (versenyzo1 == null) return;
-            if (versenyzo1.rect.Margin.Left >= celvonalErtek) return;
+            versenyzo1.Move(celvonalErtek);
+            versenyzo2.Move(celvonalErtek);
+            versenyzo3.Move(celvonalErtek);
 
-            Thickness th = new Thickness(t * versenyzo1.speed, versenyzo1.rect.Margin.Top, 0, 0);
-            versenyzo1.rect.Margin = th;
-
-            t += 5;
 
         }
     }
@@ -71,6 +79,8 @@ namespace Verseny
 
         public float speed;
 
+        float value = 5f;
+
         Random random = new Random();
         public Versenyzo(string name,Rectangle rect)
         {
@@ -79,6 +89,15 @@ namespace Verseny
             speed = random.Next(1,3);
         }
         
+        public void Move(double celvonalErtek)
+        {
+            if (rect.Margin.Left >= celvonalErtek) return;
+
+            Thickness th = new Thickness(value * speed, rect.Margin.Top, 0, 0);
+            rect.Margin = th;
+
+            value += 5;
+        }
         
     }
     public class Futam
