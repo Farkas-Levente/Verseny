@@ -127,6 +127,10 @@ namespace Verseny
             {
                 v.rect.Margin = v.start;
                 v.value = 5f;
+                Color color = Color.FromRgb(107, 203, 70);
+                SolidColorBrush brush = new SolidColorBrush(color);
+                v.sav.Fill = brush;
+                v.label.Visibility = Visibility.Hidden;
             }
 
         }
@@ -152,6 +156,10 @@ namespace Verseny
                 {
                     d.rect.Margin = d.start;
                     d.value = 5f;
+                    Color color = Color.FromRgb(107, 203, 70);
+                    SolidColorBrush brush = new SolidColorBrush(color);
+                    v.sav.Fill = brush;
+                    v.label.Visibility = Visibility.Hidden;
                 }
             }
             
@@ -170,14 +178,14 @@ namespace Verseny
         public int harmadikHelyezesekSzama = 0;
         Futam futam;
         public Thickness start;
-        public Image sav;
+        public Rectangle sav;
         public float speed;
         public Label label;
 
         public float value = 5f;
 
         
-        public Versenyzo(string name,Rectangle rect,Futam futam, Image sav,Label label)
+        public Versenyzo(string name,Rectangle rect,Futam futam, Rectangle sav,Label label)
         {
             this.futam = futam;
             Random random = new Random();
@@ -203,18 +211,27 @@ namespace Verseny
                         elsoHelyekSzama++;
                         label.Content = "1";
                         pontSzam += 3;
+                        Color color = Color.FromRgb(255, 215, 0);
+                        SolidColorBrush brush = new SolidColorBrush(color);
+                        sav.Fill = brush;
                     }
                    else if(futam.sorrend[1] == this)
                     {
                         masodikHelyezesekSzama++;
                         label.Content = "2";
                         pontSzam += 2;
+                        Color color = Color.FromRgb(192 , 192, 192);
+                        SolidColorBrush brush = new SolidColorBrush(color);
+                        sav.Fill = brush;
                     }
                     else if(futam.sorrend[2] == this)
                     {
                         harmadikHelyezesekSzama++;
                         label.Content = "3";
                         pontSzam += 1;
+                        Color color = Color.FromRgb(255, 248, 220);
+                        SolidColorBrush brush = new SolidColorBrush(color);
+                        sav.Fill = brush;
                     }
                     label.Visibility = Visibility.Visible;
                 }

@@ -10,6 +10,32 @@
         <Color x:Key="Color1">#FF4E1616</Color>
     </Window.Resources>
     <Grid>
+        <Rectangle Name="sav3" Fill="#FF6BCB46" HorizontalAlignment="Left" Height="75" Margin="62,234,0,0" Stroke="Black" VerticalAlignment="Top" Width="355"/>
+        <Rectangle Name="sav2" Fill="#FB6BCB46" HorizontalAlignment="Left" Height="75" Margin="62,157,0,0" Stroke="Black" VerticalAlignment="Top" Width="355"/>
+        <Rectangle Name="sav1" Fill="#FB6BCB46" HorizontalAlignment="Left" Height="75" Margin="62,78,0,0" Stroke="Black" VerticalAlignment="Top" Width="355"/>
+
+
+        <Label Content="Label" HorizontalAlignment="Left" Margin="25,180,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5" Width="229" Background="Black">
+            <Label.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="90"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Label.RenderTransform>
+        </Label>
+        <Label Content="Label" HorizontalAlignment="Left" Margin="279,180,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5" Width="229" Background="Black">
+            <Label.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="90"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Label.RenderTransform>
+        </Label>
+       
         <Rectangle   x:Name="Rect1" HorizontalAlignment="Left" Height="74" Stroke="Black" VerticalAlignment="Top" Width="66" Margin="62,78,0,0" RenderTransformOrigin="0.5,0.5">
             <Rectangle.Fill>
                 <ImageBrush  ImageSource="horse.png"/>
@@ -31,7 +57,6 @@
         <Button Name="UjFutam" Content="Új Futam" HorizontalAlignment="Left" Margin="223,27,0,0" VerticalAlignment="Top" Width="75" Click="UjFutam_Click"/>
         <Button Name="UjBajnoksag" Content="Új Bajnokság" HorizontalAlignment="Left" Margin="342,27,0,0" VerticalAlignment="Top" Width="75" Click="UjBajnoksag_Click"/>
         <Label Content="A bajnokság állása" HorizontalAlignment="Left" Margin="41,331,0,0" VerticalAlignment="Top" Width="115"/>
-        <Image x:Name="sav1" HorizontalAlignment="Left" Height="78" Margin="62,78,0,0" VerticalAlignment="Top" Width="322" OpacityMask="#FF0070EB"/>
         <Image HorizontalAlignment="Left" Height="231" Margin="128,78,0,0" VerticalAlignment="Top" Width="28"/>
         <Image x:Name="celvonal" HorizontalAlignment="Left" Height="231" Margin="410,78,0,0" VerticalAlignment="Top" Width="28">
             <Image.OpacityMask>
@@ -39,12 +64,6 @@
             </Image.OpacityMask>
         </Image>
         <Label Name="eredmenytabla" Content="" HorizontalAlignment="Left" Margin="223,314,0,0" VerticalAlignment="Top" Height="101" Width="290"/>
-        <Image x:Name="sav2" HorizontalAlignment="Left" Height="78" Margin="62,156,0,0" VerticalAlignment="Top" Width="322" OpacityMask="#FF066FE2"/>
-        <Image  x:Name="sav3" HorizontalAlignment="Left" Height="78" Margin="62,231,0,0" VerticalAlignment="Top" Width="322">
-            <Image.OpacityMask>
-                <ImageBrush/>
-            </Image.OpacityMask>
-        </Image>
         <Image  Margin="-193,184,866.6,163" Source="horse.png" Stretch="Fill" >
             <Image.OpacityMask>
                 <ImageBrush  ImageSource="horse.png"/>
@@ -52,29 +71,10 @@
         </Image>
         <Image Margin="-1385,-550,1338.6,111" Source="bear.png" Stretch="Fill"/>
         <Image Margin="-55,465,626.6,-272" Source="rabbit.png" Stretch="Fill"/>
-        <Label Content="Label" HorizontalAlignment="Left" Margin="25,180,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5" Width="229" Background="Black">
-            <Label.RenderTransform>
-                <TransformGroup>
-                    <ScaleTransform/>
-                    <SkewTransform/>
-                    <RotateTransform Angle="90"/>
-                    <TranslateTransform/>
-                </TransformGroup>
-            </Label.RenderTransform>
-        </Label>
-        <Label Content="Label" HorizontalAlignment="Left" Margin="279,180,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5" Width="229" Background="Black">
-            <Label.RenderTransform>
-                <TransformGroup>
-                    <ScaleTransform/>
-                    <SkewTransform/>
-                    <RotateTransform Angle="90"/>
-                    <TranslateTransform/>
-                </TransformGroup>
-            </Label.RenderTransform>
-        </Label>
+        
         <Label Name="kiiras1" Content="Label" HorizontalAlignment="Left" Margin="220,87,0,0" VerticalAlignment="Top" Height="44" Width="78"/>
         <Label  Name="kiiras2" Content="Label" HorizontalAlignment="Left" Margin="223,166,0,0" VerticalAlignment="Top" Height="44" Width="78"/>
         <Label Name="kiiras3" Content="Label" HorizontalAlignment="Left" Margin="223,239,0,0" VerticalAlignment="Top" Height="44" Width="78"/>
-
+        
     </Grid>
 </Window>
