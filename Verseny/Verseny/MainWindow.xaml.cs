@@ -48,9 +48,9 @@ namespace Verseny
             
 
             futam = new Futam();
-            versenyzo1 = new Versenyzo("versenyzo1", Rect1, futam,sav1);
-            versenyzo2 = new Versenyzo("versenyzo2", Rect2, futam,sav2);
-            versenyzo3 = new Versenyzo("versenyzo3", Rect3, futam,sav3);
+            versenyzo1 = new Versenyzo("versenyzo1", Rect1, futam,sav1,kiiras1);
+            versenyzo2 = new Versenyzo("versenyzo2", Rect2, futam,sav2,kiiras2);
+            versenyzo3 = new Versenyzo("versenyzo3", Rect3, futam,sav3,kiiras3);
             futam.versenyzok.Add(versenyzo1);
             futam.versenyzok.Add(versenyzo2);
             futam.versenyzok.Add(versenyzo3);
@@ -59,7 +59,7 @@ namespace Verseny
             bajnoksag.pontozasiSorrend.Add(versenyzo3);
             foreach (var item in futam.versenyzok)
             {
-                
+                item.label.Visibility = Visibility.Hidden;
             }
 
         }
@@ -172,11 +172,12 @@ namespace Verseny
         public Thickness start;
         public Image sav;
         public float speed;
+        public Label label;
 
         public float value = 5f;
 
         
-        public Versenyzo(string name,Rectangle rect,Futam futam, Image sav)
+        public Versenyzo(string name,Rectangle rect,Futam futam, Image sav,Label label)
         {
             this.futam = futam;
             Random random = new Random();
@@ -185,6 +186,7 @@ namespace Verseny
             speed = random.Next(1,10);
             start = rect.Margin;
             this.sav = sav;
+            this.label = label;
         }
         
         public void Move(double celvonalErtek,int randomszam)
@@ -199,18 +201,22 @@ namespace Verseny
                     if (futam.sorrend[0] == this)
                     {
                         elsoHelyekSzama++;
+                        label.Content = "1";
                         pontSzam += 3;
                     }
                    else if(futam.sorrend[1] == this)
                     {
                         masodikHelyezesekSzama++;
+                        label.Content = "2";
                         pontSzam += 2;
                     }
                     else if(futam.sorrend[2] == this)
                     {
                         harmadikHelyezesekSzama++;
+                        label.Content = "3";
                         pontSzam += 1;
                     }
+                    label.Visibility = Visibility.Visible;
                 }
                 
                 return;

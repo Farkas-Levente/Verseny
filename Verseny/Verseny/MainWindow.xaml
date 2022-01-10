@@ -40,7 +40,11 @@
         </Image>
         <Label Name="eredmenytabla" Content="" HorizontalAlignment="Left" Margin="223,314,0,0" VerticalAlignment="Top" Height="101" Width="290"/>
         <Image x:Name="sav2" HorizontalAlignment="Left" Height="78" Margin="62,156,0,0" VerticalAlignment="Top" Width="322" OpacityMask="#FF066FE2"/>
-        <Image  x:Name="sav3" HorizontalAlignment="Left" Height="78" Margin="62,231,0,0" VerticalAlignment="Top" Width="322"/>
+        <Image  x:Name="sav3" HorizontalAlignment="Left" Height="78" Margin="62,231,0,0" VerticalAlignment="Top" Width="322">
+            <Image.OpacityMask>
+                <ImageBrush/>
+            </Image.OpacityMask>
+        </Image>
         <Image  Margin="-193,184,866.6,163" Source="horse.png" Stretch="Fill" >
             <Image.OpacityMask>
                 <ImageBrush  ImageSource="horse.png"/>
@@ -68,6 +72,9 @@
                 </TransformGroup>
             </Label.RenderTransform>
         </Label>
+        <Label Name="kiiras1" Content="Label" HorizontalAlignment="Left" Margin="220,87,0,0" VerticalAlignment="Top" Height="44" Width="78"/>
+        <Label  Name="kiiras2" Content="Label" HorizontalAlignment="Left" Margin="223,166,0,0" VerticalAlignment="Top" Height="44" Width="78"/>
+        <Label Name="kiiras3" Content="Label" HorizontalAlignment="Left" Margin="223,239,0,0" VerticalAlignment="Top" Height="44" Width="78"/>
 
     </Grid>
 </Window>
