@@ -45,17 +45,22 @@ namespace Verseny
             timer.Tick += Tick;
             UjFutam.IsEnabled = false;
             UjBajnoksag.IsEnabled = false;
+            
 
             futam = new Futam();
-            versenyzo1 = new Versenyzo("versenyzo1", Rect1, futam);
-            versenyzo2 = new Versenyzo("versenyzo2", Rect2, futam);
-            versenyzo3 = new Versenyzo("versenyzo3", Rect3, futam);
+            versenyzo1 = new Versenyzo("versenyzo1", Rect1, futam,sav1);
+            versenyzo2 = new Versenyzo("versenyzo2", Rect2, futam,sav2);
+            versenyzo3 = new Versenyzo("versenyzo3", Rect3, futam,sav3);
             futam.versenyzok.Add(versenyzo1);
             futam.versenyzok.Add(versenyzo2);
             futam.versenyzok.Add(versenyzo3);
             bajnoksag.pontozasiSorrend.Add(versenyzo1);
             bajnoksag.pontozasiSorrend.Add(versenyzo2);
             bajnoksag.pontozasiSorrend.Add(versenyzo3);
+            foreach (var item in futam.versenyzok)
+            {
+                
+            }
 
         }
 
@@ -165,13 +170,13 @@ namespace Verseny
         public int harmadikHelyezesekSzama = 0;
         Futam futam;
         public Thickness start;
-
+        public Image sav;
         public float speed;
 
         public float value = 5f;
 
         
-        public Versenyzo(string name,Rectangle rect,Futam futam)
+        public Versenyzo(string name,Rectangle rect,Futam futam, Image sav)
         {
             this.futam = futam;
             Random random = new Random();
@@ -179,6 +184,7 @@ namespace Verseny
             this.name = name;
             speed = random.Next(1,10);
             start = rect.Margin;
+            this.sav = sav;
         }
         
         public void Move(double celvonalErtek,int randomszam)
